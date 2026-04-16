@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="co.edu.poli.examen2_diegogaitan.examensoto.CONTROLADOR.ControladorSeguros">
+    <tabs>
+        <Tab text="Crear Nuevo Seguro">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="600.0">
+                    <children>
+                        <Label layoutX="30.0" layoutY="20.0" text="Datos del Seguro">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="txtNumero" layoutX="30.0" layoutY="50.0" prefWidth="150.0" promptText="Número de Póliza" />
+                        <DatePicker fx:id="dateExpedicion" layoutX="200.0" layoutY="50.0" prefWidth="150.0" promptText="Fecha Expedición" />
+                        <ComboBox fx:id="cmbAsegurado" layoutX="370.0" layoutY="50.0" prefWidth="180.0" promptText="Seleccionar Asegurado" />
+
+                        <Separator layoutX="30.0" layoutY="95.0" prefWidth="520.0" />
+                        <Label layoutX="30.0" layoutY="110.0" text="Tipo de Seguro" />
+                        <RadioButton fx:id="rbVida" layoutX="130.0" layoutY="110.0" mnemonicParsing="false" text="Vida" selected="true">
+                            <toggleGroup><ToggleGroup fx:id="tipoSeguro" /></toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbVehiculo" layoutX="200.0" layoutY="110.0" mnemonicParsing="false" text="Vehicular" toggleGroup="$tipoSeguro" />
+
+                        <TextField fx:id="txtDatoEspecifico" layoutX="30.0" layoutY="150.0" prefHeight="25.0" prefWidth="320.0" promptText="Beneficiario (Si es Vida) / Marca (Si es Vehículo)" />
+
+                        <CheckBox fx:id="chkEstado" layoutX="30.0" layoutY="190.0" mnemonicParsing="false" selected="true" text="Estado Activo" />
+
+                        <Button fx:id="btnGuardar" layoutX="400.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleGuardar" prefHeight="40.0" prefWidth="150.0" text="Guardar Seguro" style="-fx-background-color: #28a745; -fx-text-fill: white;" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Consultar / Gestionar">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="txtBusqueda" layoutX="30.0" layoutY="30.0" prefHeight="25.0" prefWidth="250.0" promptText="Ingrese número de póliza" />
+                        <Button layoutX="300.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleConsultar" text="Buscar" />
+                        <TextArea fx:id="txtAreaDetalles" layoutX="30.0" layoutY="75.0" prefHeight="150.0" prefWidth="540.0" editable="false" />
+                        <Button layoutX="30.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleActivar" text="Activar" />
+                        <Button layoutX="100.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleCancelar" text="Cancelar" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
